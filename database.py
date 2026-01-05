@@ -5,6 +5,12 @@ import json
 from typing import Optional, List, Dict
 import os
 import threading
+from logging_config import get_logger
+
+# Get loggers
+logger = get_logger('app')
+detection_logger = get_logger('detection')
+error_logger = get_logger('error')
 
 # #region agent log
 LOG_PATH = r"c:\Users\maazs\Documents\Projects\ALPR_TollPlaza_System\.cursor\debug.log"
@@ -316,11 +322,20 @@ class DatabaseManager:
                         VALUES (%s, %s, %s, %s, %s, %s)
                     """, (node_id, plate_number.upper(), confidence, status, owner_name, image_path))
                     self.conn.commit()
+                    
+                    # Log to detection log
+                    detection_logger.info(
+                        f"Detection logged - Plate: {plate_number}, Status: {status}, "
+                        f"Confidence: {confidence:.2%}, Owner: {owner_name or 'N/A'}"
+                    )
+                    
                     # #region agent log
                     _log("database.py:log_detection:2", "Detection logged successfully", {}, "G")
                     # #endregion
                     return True
             except Exception as e:
+                error_logger.error(f"Error logging detection to database: {e}", exc_info=True)
+                
                 # #region agent log
                 _log("database.py:log_detection:3", "Error in log_detection", {"error": str(e), "error_type": type(e).__name__}, "G")
                 # #endregion

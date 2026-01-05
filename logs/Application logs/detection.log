@@ -1,0 +1,24 @@
+2026-01-06 01:55:24 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:55:24 - detection - INFO - Plate detected: MH20EJ0364 (Confidence: 78.88%)
+2026-01-06 01:55:24 - detection - WARNING - Vehicle DENIED: MH20EJ0364 - Not registered in system
+2026-01-06 01:55:24 - detection - INFO - Detection logged - Plate: MH20EJ0364, Status: DENIED, Confidence: 78.88%, Owner: N/A
+2026-01-06 01:55:35 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:55:35 - detection - INFO - Plate detected: OR (Confidence: 69.82%)
+2026-01-06 01:55:35 - detection - WARNING - Vehicle DENIED: OR - Not registered in system
+2026-01-06 01:55:35 - detection - INFO - Detection logged - Plate: OR, Status: DENIED, Confidence: 69.82%, Owner: N/A
+2026-01-06 01:57:34 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:57:34 - detection - INFO - Plate detected: OR (Confidence: 69.82%)
+2026-01-06 01:57:34 - detection - WARNING - Vehicle DENIED: OR - Not registered in system
+2026-01-06 01:57:34 - detection - INFO - Detection logged - Plate: OR, Status: DENIED, Confidence: 69.82%, Owner: N/A
+2026-01-06 01:57:41 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:57:41 - detection - INFO - Plate detected: SN66XMZ (Confidence: 84.94%)
+2026-01-06 01:57:41 - detection - WARNING - Vehicle DENIED: SN66XMZ - Not registered in system
+2026-01-06 01:57:41 - detection - INFO - Detection logged - Plate: SN66XMZ, Status: DENIED, Confidence: 84.94%, Owner: N/A
+2026-01-06 01:57:47 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:57:47 - detection - INFO - Plate detected: DL7CQ1939 (Confidence: 78.45%)
+2026-01-06 01:57:47 - detection - WARNING - Vehicle DENIED: DL7CQ1939 - Not registered in system
+2026-01-06 01:57:47 - detection - INFO - Detection logged - Plate: DL7CQ1939, Status: DENIED, Confidence: 78.45%, Owner: N/A
+2026-01-06 01:59:51 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 01:59:51 - detection - INFO - Plate detected: MH20EJ0364 (Confidence: 78.88%)
+2026-01-06 01:59:51 - detection - WARNING - Vehicle DENIED: MH20EJ0364 - Not registered in system
+2026-01-06 01:59:51 - detection - INFO - Detection logged - Plate: MH20EJ0364, Status: DENIED, Confidence: 78.88%, Owner: N/A

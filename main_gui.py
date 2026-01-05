@@ -19,6 +19,10 @@ import os
 from database import DatabaseManager
 from camera_handler import CameraHandler
 from alpr_engine import ALPREngine
+from logging_config import setup_logging, get_logger
+
+# Initialize logging
+app_logger, detection_logger, error_logger = setup_logging()
 
 # #region agent log
 LOG_PATH = r"c:\Users\maazs\Documents\Projects\ALPR_TollPlaza_System\.cursor\debug.log"
@@ -240,6 +244,7 @@ class SidebarButton(QPushButton):
 class ALPRMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        app_logger.info("Initializing ALPR Main Window")
         # #region agent log
         _log("main_gui.py:__init__:1", "ALPRMainWindow.__init__ started", {}, "D")
         # #endregion
@@ -248,6 +253,7 @@ class ALPRMainWindow(QMainWindow):
         self.setMinimumSize(1400, 800)
         
         # Load configuration
+        app_logger.info("Loading configuration from config.json")
         # #region agent log
         _log("main_gui.py:48", "Loading config file", {"config_path": "config.json"}, "A")
         # #endregion
@@ -286,8 +292,11 @@ class ALPRMainWindow(QMainWindow):
         
         # Initialize database (required)
         try:
+            app_logger.info("Initializing database connection")
             self.db = DatabaseManager()
+            app_logger.info("Database connection established successfully")
         except Exception as e:
+            error_logger.error(f"Failed to initialize database: {e}", exc_info=True)
             QMessageBox.critical(self, "Database Error", f"Failed to initialize database: {e}")
             sys.exit(1)
         
@@ -1172,6 +1181,8 @@ class ALPRMainWindow(QMainWindow):
         print("🔔 HANDLE_DETECTION CALLED!")
         print("🔔 "*20)
         
+        detection_logger.info(f"Detection received: {list(result.keys())}")
+        
         # #region agent log
         _log("main_gui.py:handle_detection:1", "handle_detection() called", {"result_keys": list(result.keys()), "plate_number": result.get('plate_number'), "confidence": result.get('confidence')}, "O")
         # #endregion
@@ -1180,6 +1191,8 @@ class ALPRMainWindow(QMainWindow):
             plate_number = result['plate_number']
             confidence = result['confidence']
             frame = result.get('frame')
+            
+            detection_logger.info(f"Plate detected: {plate_number} (Confidence: {confidence:.2%})")
             
             print(f"📋 Plate Number: {plate_number}")
             print(f"📊 Confidence: {confidence:.2%}")
@@ -1256,6 +1269,8 @@ class ALPRMainWindow(QMainWindow):
             # #endregion
             
             if vehicle:
+                detection_logger.info(f"Vehicle ALLOWED: {plate_number} - Owner: {vehicle.get('owner_name')}")
+                
                 print(f"\n✅ VEHICLE FOUND IN DATABASE!")
                 print(f"   Owner: {vehicle.get('owner_name', 'N/A')}")
                 print(f"   Type: {vehicle.get('vehicle_type', 'N/A')}")
@@ -1292,6 +1307,8 @@ class ALPRMainWindow(QMainWindow):
                     # #endregion
                     print(f"❌ Error logging detection: {e}")
             else:
+                detection_logger.warning(f"Vehicle DENIED: {plate_number} - Not registered in system")
+                
                 print(f"\n⛔ VEHICLE NOT FOUND IN DATABASE!")
                 
                 print(f"🔴 Setting status to DENIED")
@@ -1347,6 +1364,8 @@ class ALPRMainWindow(QMainWindow):
             print("="*60 + "\n")
             
         except Exception as e:
+            error_logger.error(f"Critical error in handle_detection: {e}", exc_info=True)
+            
             # #region agent log
             _log("main_gui.py:handle_detection:8", "Critical error in handle_detection", {"error": str(e), "error_type": type(e).__name__}, "O")
             # #endregion

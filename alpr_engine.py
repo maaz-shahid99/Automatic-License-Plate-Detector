@@ -18,6 +18,10 @@ except Exception as e:
     print(f"⚠ Could not apply Pillow compatibility patch: {e}")
 
 import easyocr
+from logging_config import get_logger
+
+# Get logger
+logger = get_logger('app')
 
 # #region agent log
 LOG_PATH = r"c:\Users\maazs\Documents\Projects\ALPR_TollPlaza_System\.cursor\debug.log"
@@ -33,6 +37,7 @@ def _log(location, message, data=None, hypothesisId=None):
 class ALPREngine:
     def __init__(self, config_path: str = "config.json"):
         """Initialize ALPR engine with YOLO and EasyOCR"""
+        logger.info("Initializing ALPR Engine")
         # #region agent log
         _log("alpr_engine.py:13", "Loading config for ALPR", {"config_path": config_path}, "A")
         # #endregion
@@ -63,16 +68,19 @@ class ALPREngine:
         
         # Initialize YOLO model
         print("Loading YOLO model...")
+        logger.info("Loading YOLO model")
         self.yolo_model = self._load_yolo_model()
         
         # Initialize EasyOCR
         print("Loading EasyOCR...")
+        logger.info("Loading EasyOCR reader")
         self.ocr_reader = easyocr.Reader(
             self.ocr_config['languages'],
             gpu=self.ocr_config['gpu']
         )
         
         print("✓ ALPR Engine initialized")
+        logger.info("ALPR Engine initialized successfully")
     
     def _load_yolo_model(self):
         """Load YOLO model for license plate detection"""

@@ -5,6 +5,10 @@ import json
 from threading import Thread, Lock
 import time
 import os
+from logging_config import get_logger
+
+# Get logger
+logger = get_logger('app')
 
 # #region agent log
 LOG_PATH = r"c:\Users\maazs\Documents\Projects\ALPR_TollPlaza_System\.cursor\debug.log"
@@ -20,6 +24,7 @@ def _log(location, message, data=None, hypothesisId=None):
 class CameraHandler:
     def __init__(self, config_path: str = "config.json"):
         """Initialize camera handler"""
+        logger.info("Initializing Camera Handler")
         # #region agent log
         _log("camera_handler.py:11", "Loading config for camera", {"config_path": config_path}, "A")
         # #endregion
@@ -62,6 +67,7 @@ class CameraHandler:
     
     def initialize_camera(self):
         """Initialize camera capture"""
+        logger.info(f"Initializing camera from source: {self.camera_source}")
         # #region agent log
         _log("camera_handler.py:init_cam:1", "Before cv2.VideoCapture()", {"camera_source": self.camera_source, "camera_source_type": type(self.camera_source).__name__}, "G")
         # #endregion
@@ -99,6 +105,7 @@ class CameraHandler:
             # #endregion
             
             self.camera_available = True
+            logger.info(f"Camera initialized successfully: {self.width}x{self.height} @ {self.fps}fps")
             # #region agent log
             _log("camera_handler.py:init_cam:6", "Camera initialized successfully", {"width": self.width, "height": self.height, "fps": self.fps}, "G")
             # #endregion
@@ -106,6 +113,7 @@ class CameraHandler:
             print(f"  Resolution: {self.width}x{self.height} @ {self.fps}fps")
             
         except Exception as e:
+            logger.error(f"Camera initialization failed: {e}")
             # #region agent log
             _log("camera_handler.py:init_cam:7", "Camera initialization exception", {"error": str(e), "error_type": type(e).__name__}, "K")
             # #endregion
