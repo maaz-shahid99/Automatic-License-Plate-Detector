@@ -254,6 +254,10 @@ class ALPREngine:
             if first_two in state_corrections:
                 text = state_corrections[first_two] + text[2:]
                 print(f"✓ State code corrected: {first_two} → {state_corrections[first_two]}")
+            elif first_two == 'OL':
+                # Common OCR misread: 'DL' often read as 'OL' (O vs D)
+                text = 'DL' + text[2:]
+                print(f"✓ State code corrected: {first_two} → DL")
             elif first_two not in indian_state_codes:
                 # Try to fix if it looks like a misread
                 # H at position 0 or 1 is likely M or N

@@ -1,0 +1,165 @@
+================================================================================
+              EDGE-BASED PLATE STRAIGHTENER - START HERE
+================================================================================
+
+QUICKEST WAY TO TEST:
+=====================
+Double-click this file:  test_straightener.bat
+
+
+WHAT THIS MODULE DOES:
+======================
+Takes a cropped license plate image (from YOLO detection) and straightens
+it using top and bottom edge detection for horizontal alignment.
+
+- Uses Canny edge detection
+- Hough Line Transform to find horizontal edges
+- Aligns plate based on detected edges
+- Shows 3-panel visualization (Original | Straightened | Detected Edges)
+
+
+FILES IN THIS FOLDER:
+=====================
+
+*** QUICK START ***
+  test_straightener.bat         - Test with your screenshot (EASIEST!)
+  test_with_snapshot.bat        - Test with specific snapshot
+  batch_test_snapshots.bat      - Test multiple snapshots
+
+*** DOCUMENTATION ***
+  START_HERE.txt                - This file - quick overview
+  SETUP_COMPLETE.md             - ⭐ Complete setup guide (READ FIRST)
+  USAGE_GUIDE.md                - Quick usage instructions
+  README.md                     - Technical documentation
+
+*** CODE ***
+  plate_straightener.py         - Core module (edge-based algorithm)
+  demo_straightener.py          - Demo script
+
+
+RECOMMENDED READING ORDER:
+==========================
+1. START_HERE.txt          (You are here - quick overview)
+2. SETUP_COMPLETE.md       (Complete guide with test results)
+3. USAGE_GUIDE.md          (How to use - commands and examples)
+4. README.md               (Technical details if interested)
+
+
+QUICK TEST INSTRUCTIONS:
+========================
+Option 1 (Easiest):
+  - Double-click: test_straightener.bat
+
+Option 2 (Command Line):
+  - Open Anaconda Prompt
+  - cd C:\Users\maazs\Documents\Projects\ALPR_TollPlaza_System\test
+  - conda activate alpr_dev
+  - python demo_straightener.py "path\to\image.jpg"
+
+Option 3 (Test with snapshot):
+  - Double-click: test_with_snapshot.bat
+  - Drag and drop any image onto it
+
+
+WHAT YOU'LL SEE:
+================
+A window with 3 panels:
+  [Original Plate] | [Straightened Plate] | [Detected Edges]
+
+Console output showing:
+  - Detected angle
+  - Whether correction was needed
+  - Method used
+  - Output file location
+
+Press any key in the window to close it.
+
+
+OUTPUT FILES:
+=============
+Straightened images are saved as:
+  original_name_straightened.jpg
+
+Located in this test/ folder.
+
+
+KEY FEATURES:
+=============
+✓ Works with cropped RGB plates from YOLO (not preprocessed images)
+✓ Uses top/bottom edge detection for horizontal alignment
+✓ Hough Line Transform for accurate angle detection
+✓ 3-panel visualization with detected edges
+✓ Automatic fallback to contour method if needed
+✓ Smart cropping to remove excess borders
+✓ NOT integrated with main ALPR (standalone module)
+
+
+TESTED WITH:
+============
+✓ Your screenshot: C:\Users\maazs\Pictures\Screenshots\Screenshot 2026-01-06 010749.png
+✓ Detected angle: -1.00°
+✓ Status: Working correctly
+
+
+INTEGRATION (OPTIONAL):
+=======================
+To use in your ALPR pipeline, add in alpr_engine.py AFTER YOLO detection:
+
+    from test.plate_straightener import PlateStraightener
+    straightener = PlateStraightener(min_angle_threshold=1.0)
+    plate_img, angle, debug = straightener.process(plate_img)
+
+See SETUP_COMPLETE.md for detailed integration instructions.
+
+
+TROUBLESHOOTING:
+================
+Issue: conda not recognized
+  → Use Anaconda Prompt instead of regular Command Prompt
+
+Issue: Window doesn't appear
+  → Check behind other windows, look for console errors
+
+Issue: No edges detected
+  → Normal if plate is already straight
+  → Module will use fallback contour method
+
+Issue: Wrong angle detected
+  → Check the edges panel (right side) to see what was detected
+
+
+CONFIGURATION:
+==============
+To change sensitivity, edit demo_straightener.py line 46:
+
+    min_angle_threshold=1.0   (default - balanced)
+    min_angle_threshold=0.5   (aggressive - straighten slight tilts)
+    min_angle_threshold=2.0   (conservative - only major tilts)
+
+
+STATUS:
+=======
+✅ Module complete and working
+✅ Tested with your screenshot  
+✅ All files in test/ folder
+✅ Documentation complete
+✅ Ready to use
+
+
+NEXT STEPS:
+===========
+1. Double-click test_straightener.bat to see it in action
+2. Read SETUP_COMPLETE.md for full details
+3. Test with your snapshot images
+4. (Optional) Integrate with ALPR pipeline
+
+
+================================================================================
+                        Ready to go! 🚀
+================================================================================
+
+For detailed information, read: SETUP_COMPLETE.md
+For quick commands, read: USAGE_GUIDE.md
+For technical details, read: README.md
+
+Double-click test_straightener.bat to start testing!

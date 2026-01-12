@@ -43,3 +43,116 @@
 2026-01-06 01:59:36 - app - INFO - Loading YOLO model
 2026-01-06 01:59:36 - app - INFO - Loading EasyOCR reader
 2026-01-06 01:59:38 - app - INFO - ALPR Engine initialized successfully
+2026-01-06 02:13:35 - app - INFO - ============================================================
+2026-01-06 02:13:35 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-06 02:13:35 - app - INFO - Session started at 2026-01-06 02:13:35
+2026-01-06 02:13:35 - app - INFO - ============================================================
+2026-01-06 02:13:35 - app - INFO - Initializing ALPR Main Window
+2026-01-06 02:13:35 - app - INFO - Loading configuration from config.json
+2026-01-06 02:13:35 - app - INFO - Initializing database connection
+2026-01-06 02:13:35 - app - INFO - Database connection established successfully
+2026-01-06 02:13:35 - app - INFO - Initializing Camera Handler
+2026-01-06 02:13:35 - app - INFO - Initializing camera from source: 0
+2026-01-06 02:13:37 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-06 02:13:37 - app - INFO - Initializing ALPR Engine
+2026-01-06 02:13:37 - app - INFO - Loading YOLO model
+2026-01-06 02:13:37 - app - INFO - Loading EasyOCR reader
+2026-01-06 02:13:39 - app - INFO - ALPR Engine initialized successfully
+2026-01-06 02:18:07 - app - INFO - ============================================================
+2026-01-06 02:18:07 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-06 02:18:07 - app - INFO - Session started at 2026-01-06 02:18:07
+2026-01-06 02:18:07 - app - INFO - ============================================================
+2026-01-06 02:18:07 - app - INFO - Initializing ALPR Main Window
+2026-01-06 02:18:07 - app - INFO - Loading configuration from config.json
+2026-01-06 02:18:07 - app - INFO - Initializing database connection
+2026-01-06 02:18:07 - app - INFO - Database connection established successfully
+2026-01-06 02:18:08 - app - INFO - Initializing Camera Handler
+2026-01-06 02:18:08 - app - INFO - Initializing camera from source: 0
+2026-01-06 02:18:09 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-06 02:18:09 - app - INFO - Initializing ALPR Engine
+2026-01-06 02:18:09 - app - INFO - Loading YOLO model
+2026-01-06 02:18:09 - app - INFO - Loading EasyOCR reader
+2026-01-06 02:18:11 - app - INFO - ALPR Engine initialized successfully
+2026-01-06 02:51:21 - app - INFO - ============================================================
+2026-01-06 02:51:21 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-06 02:51:21 - app - INFO - Session started at 2026-01-06 02:51:21
+2026-01-06 02:51:21 - app - INFO - ============================================================
+2026-01-06 02:51:21 - app - INFO - Initializing ALPR Main Window
+2026-01-06 02:51:21 - app - INFO - Loading configuration from config.json
+2026-01-06 02:51:21 - app - INFO - Initializing database connection
+2026-01-06 02:51:21 - app - INFO - Database connection established successfully
+2026-01-06 02:51:22 - app - INFO - Initializing Camera Handler
+2026-01-06 02:51:22 - app - INFO - Initializing camera from source: 0
+2026-01-06 02:51:23 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-06 02:51:23 - app - INFO - Initializing ALPR Engine
+2026-01-06 02:51:23 - app - INFO - Loading YOLO model
+2026-01-06 02:51:23 - app - INFO - Loading EasyOCR reader
+2026-01-06 02:51:25 - app - INFO - ALPR Engine initialized successfully
+2026-01-12 11:45:29 - app - INFO - ============================================================
+2026-01-12 11:45:29 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 11:45:29 - app - INFO - Session started at 2026-01-12 11:45:29
+2026-01-12 11:45:29 - app - INFO - ============================================================
+2026-01-12 11:45:29 - app - INFO - Initializing ALPR Main Window
+2026-01-12 11:45:29 - app - INFO - Loading configuration from config.json
+2026-01-12 11:45:29 - app - INFO - Initializing database connection
+2026-01-12 11:45:29 - app - INFO - Database connection established successfully
+2026-01-12 11:45:30 - app - INFO - Initializing Camera Handler
+2026-01-12 11:45:30 - app - INFO - Initializing camera from source: 0
+2026-01-12 11:45:31 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-12 11:45:31 - app - INFO - Initializing ALPR Engine
+2026-01-12 11:45:31 - app - INFO - Loading YOLO model
+2026-01-12 11:45:31 - app - INFO - Loading EasyOCR reader
+2026-01-12 11:45:33 - app - INFO - ALPR Engine initialized successfully
+2026-01-12 16:57:42 - app - INFO - ============================================================
+2026-01-12 16:57:42 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 16:57:42 - app - INFO - Session started at 2026-01-12 16:57:42
+2026-01-12 16:57:42 - app - INFO - ============================================================
+2026-01-12 16:58:45 - app - INFO - ============================================================
+2026-01-12 16:58:45 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 16:58:45 - app - INFO - Session started at 2026-01-12 16:58:45
+2026-01-12 16:58:45 - app - INFO - ============================================================
+2026-01-12 17:00:03 - app - INFO - ============================================================
+2026-01-12 17:00:03 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 17:00:03 - app - INFO - Session started at 2026-01-12 17:00:03
+2026-01-12 17:00:03 - app - INFO - ============================================================
+2026-01-12 17:00:03 - app - INFO - Initializing ALPR Main Window
+2026-01-12 17:00:03 - app - INFO - Loading configuration from config.json
+2026-01-12 17:00:03 - app - INFO - Initializing database connection
+2026-01-12 17:00:03 - app - INFO - Database connection established successfully
+2026-01-12 17:00:05 - app - INFO - Initializing Camera Handler
+2026-01-12 17:00:05 - app - INFO - Initializing camera from source: 0
+2026-01-12 17:00:06 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-12 17:00:06 - app - INFO - Initializing ALPR Engine
+2026-01-12 17:00:06 - app - INFO - Loading YOLO model
+2026-01-12 17:00:06 - app - INFO - Loading EasyOCR reader
+2026-01-12 17:00:08 - app - INFO - ALPR Engine initialized successfully
+2026-01-12 17:03:04 - app - INFO - ============================================================
+2026-01-12 17:03:04 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 17:03:04 - app - INFO - Session started at 2026-01-12 17:03:04
+2026-01-12 17:03:04 - app - INFO - ============================================================
+2026-01-12 17:03:04 - app - INFO - Initializing ALPR Main Window
+2026-01-12 17:03:04 - app - INFO - Loading configuration from config.json
+2026-01-12 17:03:04 - app - INFO - Initializing database connection
+2026-01-12 17:03:04 - app - INFO - Database connection established successfully
+2026-01-12 17:03:04 - app - INFO - Initializing Camera Handler
+2026-01-12 17:03:04 - app - INFO - Initializing camera from source: 0
+2026-01-12 17:03:06 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-12 17:03:06 - app - INFO - Initializing ALPR Engine
+2026-01-12 17:03:06 - app - INFO - Loading YOLO model
+2026-01-12 17:03:06 - app - INFO - Loading EasyOCR reader
+2026-01-12 17:03:07 - app - INFO - ALPR Engine initialized successfully
+2026-01-12 17:19:31 - app - INFO - ============================================================
+2026-01-12 17:19:31 - app - INFO - ALPR Toll Plaza System - Logging initialized
+2026-01-12 17:19:31 - app - INFO - Session started at 2026-01-12 17:19:31
+2026-01-12 17:19:31 - app - INFO - ============================================================
+2026-01-12 17:19:31 - app - INFO - Initializing ALPR Main Window
+2026-01-12 17:19:31 - app - INFO - Loading configuration from config.json
+2026-01-12 17:19:31 - app - INFO - Initializing database connection
+2026-01-12 17:19:31 - app - INFO - Database connection established successfully
+2026-01-12 17:19:31 - app - INFO - Initializing Camera Handler
+2026-01-12 17:19:31 - app - INFO - Initializing camera from source: 0
+2026-01-12 17:19:32 - app - INFO - Camera initialized successfully: 1280x720 @ 30fps
+2026-01-12 17:19:32 - app - INFO - Initializing ALPR Engine
+2026-01-12 17:19:32 - app - INFO - Loading YOLO model
+2026-01-12 17:19:32 - app - INFO - Loading EasyOCR reader
+2026-01-12 17:19:34 - app - INFO - ALPR Engine initialized successfully

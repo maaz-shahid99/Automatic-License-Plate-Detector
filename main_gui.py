@@ -133,10 +133,10 @@ class DetectionThread(QThread):
                         _log("main_gui.py:DetectionThread:2", "After process_frame()", {"result_is_none": result is None, "result_keys": list(result.keys()) if result else None}, "M")
                         # #endregion
                         if result:
-                            print("\n" + "🎯 "*20)
-                            print(f"🎯 PLATE DETECTED: {result.get('plate_number')} (Confidence: {result.get('confidence'):.2%})")
+                            print("\n" + " "*20)
+                            print(f"[INFO] PLATE DETECTED: {result.get('plate_number')} (Confidence: {result.get('confidence'):.2%})")
                             print("🎯 "*20 + "\n")
-                            print(f"📤 EMITTING DETECTION SIGNAL...")
+                            print(f"[INFO] EMITTING DETECTION SIGNAL...")
                             
                             # Add the frame to the result for snapshot
                             result['frame'] = frame.copy()
@@ -307,7 +307,14 @@ class ALPRMainWindow(QMainWindow):
         
         # UI state
         self.current_detection = None
-        self.stats = {'total_vehicles': 0, 'allowed_today': 0, 'denied_today': 0, 'total_detections': 0}
+        self.stats = {
+            'total_vehicles': 0,
+            'allowed_today': 0,
+            'denied_today': 0,
+            'total_detections': 0,
+            'inside': 0,
+            'exited': 0
+        }
         
         # #region agent log
         _log("main_gui.py:__init__:7", "Before init_ui()", {}, "C")
@@ -524,6 +531,13 @@ class ALPRMainWindow(QMainWindow):
         
         self.detections_card = MetricCard("Total Detections", "0", "All time")
         metrics_layout.addWidget(self.detections_card)
+
+        # Flow counters
+        self.inside_card = MetricCard("Inside Now", "0", "Currently inside")
+        metrics_layout.addWidget(self.inside_card)
+
+        self.exited_card = MetricCard("Exited Today", "0", "Vehicles left today")
+        metrics_layout.addWidget(self.exited_card)
         
         layout.addLayout(metrics_layout)
         
@@ -1096,6 +1110,68 @@ class ALPRMainWindow(QMainWindow):
             </div>
         """)
         settings_layout.addWidget(info_text)
+
+        # Camera/Flow settings
+        flow_group = QGroupBox("Entry / Exit Configuration")
+        flow_layout = QHBoxLayout()
+        flow_group.setLayout(flow_layout)
+
+        entry_label = QLabel("Entry Node ID:")
+        self.entry_input = QLineEdit()
+        self.entry_input.setPlaceholderText("e.g., NODE_ENTRY_1")
+        entry_val = self.config.get('flow', {}).get('entry_node', '')
+        self.entry_input.setText(entry_val)
+
+        exit_label = QLabel("Exit Node ID:")
+        self.exit_input = QLineEdit()
+        self.exit_input.setPlaceholderText("e.g., NODE_EXIT_1")
+        exit_val = self.config.get('flow', {}).get('exit_node', '')
+        self.exit_input.setText(exit_val)
+
+        role_label = QLabel("This Node Role:")
+        self.role_box = QComboBox()
+        self.role_box.addItems(["normal", "entry", "exit"])    
+        current_role = self.config.get('node', {}).get('role', 'normal')
+        idx = self.role_box.findText(current_role)
+        if idx >= 0:
+            self.role_box.setCurrentIndex(idx)
+
+        save_btn = QPushButton("Save Flow Settings")
+        def save_flow():
+            entry = self.entry_input.text().strip()
+            exitn = self.exit_input.text().strip()
+            role = self.role_box.currentText()
+            # Update config in memory
+            self.config.setdefault('flow', {})
+            if entry:
+                self.config['flow']['entry_node'] = entry
+            else:
+                self.config['flow'].pop('entry_node', None)
+            if exitn:
+                self.config['flow']['exit_node'] = exitn
+            else:
+                self.config['flow'].pop('exit_node', None)
+            self.config.setdefault('node', {})
+            self.config['node']['role'] = role
+            # Persist to file
+            try:
+                with open('config.json', 'w') as f:
+                    json.dump(self.config, f, indent=2)
+                QMessageBox.information(self, "Saved", "Flow settings saved to config.json")
+                # Refresh stats/UI
+                self.update_stats()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to save config: {e}")
+
+        flow_layout.addWidget(entry_label)
+        flow_layout.addWidget(self.entry_input)
+        flow_layout.addWidget(exit_label)
+        flow_layout.addWidget(self.exit_input)
+        flow_layout.addWidget(role_label)
+        flow_layout.addWidget(self.role_box)
+        flow_layout.addWidget(save_btn)
+
+        settings_layout.addWidget(flow_group)
         
         layout.addWidget(settings_card)
         layout.addStretch()
@@ -1125,6 +1201,19 @@ class ALPRMainWindow(QMainWindow):
             self.stats['allowed_today'] = allowed_today
             self.stats['denied_today'] = denied_today
             self.stats['total_detections'] = len(history)
+
+            # Compute entry/exit counts if configured
+            entry_node = self.config.get('flow', {}).get('entry_node')
+            exit_node = self.config.get('flow', {}).get('exit_node')
+            entries = 0
+            exits = 0
+            if entry_node:
+                entries = sum(1 for h in history if h['status'] == 'ALLOWED' and h.get('node_id') == entry_node and h['detected_at'].date() == today)
+            if exit_node:
+                exits = sum(1 for h in history if h['status'] == 'ALLOWED' and h.get('node_id') == exit_node and h['detected_at'].date() == today)
+
+            self.stats['inside'] = max(0, entries - exits)
+            self.stats['exited'] = exits
             
             # Update cards
             if hasattr(self, 'total_vehicles_card'):
@@ -1135,6 +1224,10 @@ class ALPRMainWindow(QMainWindow):
                 self.denied_card.set_value(self.stats['denied_today'])
             if hasattr(self, 'detections_card'):
                 self.detections_card.set_value(self.stats['total_detections'])
+            if hasattr(self, 'inside_card'):
+                self.inside_card.set_value(self.stats.get('inside', 0))
+            if hasattr(self, 'exited_card'):
+                self.exited_card.set_value(self.stats.get('exited', 0))
             # #region agent log
             _log("main_gui.py:update_stats:4", "update_stats() completed successfully", {}, "E")
             # #endregion
@@ -1177,9 +1270,9 @@ class ALPRMainWindow(QMainWindow):
     
     def handle_detection(self, result):
         """Handle detection result from thread"""
-        print("\n" + "🔔 "*20)
-        print("🔔 HANDLE_DETECTION CALLED!")
-        print("🔔 "*20)
+        print("\n" + "* "*20)
+        print("* HANDLE_DETECTION CALLED!")
+        print("* "*20)
         
         detection_logger.info(f"Detection received: {list(result.keys())}")
         
@@ -1263,6 +1356,20 @@ class ALPRMainWindow(QMainWindow):
             print(f"🔍 Checking database for vehicle: {plate_number}")
             vehicle = self.db.get_vehicle(plate_number)
             print(f"📦 Database result: {'FOUND' if vehicle else 'NOT FOUND'}")
+
+            # If not found, try heuristic corrections for common OCR confusions
+            if not vehicle:
+                try:
+                    corrected_plate, corrected_vehicle = self.try_correct_plate(plate_number)
+                    if corrected_vehicle:
+                        print(f"🔁 Plate corrected: {plate_number} -> {corrected_plate}")
+                        plate_number = corrected_plate
+                        vehicle = corrected_vehicle
+                        # Update displayed plate immediately
+                        self.plate_label.setText(plate_number)
+                        _log("main_gui.py:handle_detection:correct", "Plate corrected via heuristics", {"original": result.get('plate_number'), "corrected": plate_number}, "O")
+                except Exception as e:
+                    _log("main_gui.py:handle_detection:correct:error", "Error during plate correction", {"error": str(e)}, "O")
             
             # #region agent log
             _log("main_gui.py:handle_detection:4", "After get_vehicle()", {"vehicle_found": vehicle is not None}, "O")
@@ -1301,6 +1408,20 @@ class ALPRMainWindow(QMainWindow):
                         vehicle['owner_name']
                     )
                     print(f"✅ Detection logged successfully")
+                    # Update flow counters depending on this node's role
+                    role = self.config.get('node', {}).get('role', 'normal')
+                    if role == 'entry':
+                        self.stats['inside'] = self.stats.get('inside', 0) + 1
+                        if hasattr(self, 'inside_card'):
+                            self.inside_card.set_value(self.stats['inside'])
+                    elif role == 'exit':
+                        # Vehicle exiting: increment exited and decrement inside safely
+                        self.stats['exited'] = self.stats.get('exited', 0) + 1
+                        self.stats['inside'] = max(0, self.stats.get('inside', 0) - 1)
+                        if hasattr(self, 'exited_card'):
+                            self.exited_card.set_value(self.stats['exited'])
+                        if hasattr(self, 'inside_card'):
+                            self.inside_card.set_value(self.stats['inside'])
                 except Exception as e:
                     # #region agent log
                     _log("main_gui.py:handle_detection:5", "Error logging ALLOWED detection", {"error": str(e)}, "O")
@@ -1369,11 +1490,11 @@ class ALPRMainWindow(QMainWindow):
             # #region agent log
             _log("main_gui.py:handle_detection:8", "Critical error in handle_detection", {"error": str(e), "error_type": type(e).__name__}, "O")
             # #endregion
-            print("\n" + "❌"*20)
+            print("\n" + "*"*20)
             print(f"❌ CRITICAL ERROR IN HANDLE_DETECTION!")
             print(f"❌ Error: {e}")
             print(f"❌ Type: {type(e).__name__}")
-            print("❌"*20 + "\n")
+            print("*"*20 + "\n")
             
             import traceback
             print("Full traceback:")
@@ -1397,9 +1518,9 @@ class ALPRMainWindow(QMainWindow):
     
     def reset_display(self):
         """Reset display to waiting state"""
-        print("\n" + "⏱️ "*20)
+        print("\n" + "⏱* "*20)
         print("⏱️  RESETTING DISPLAY TO WAITING STATE")
-        print("⏱️ "*20 + "\n")
+        print("* "*20 + "\n")
         
         self.plate_label.setText("NO DETECTION")
         self.status_label.setText("WAITING")
@@ -1421,6 +1542,70 @@ class ALPRMainWindow(QMainWindow):
             """)
         
         print("✅ Display reset complete\n")
+
+    def try_correct_plate(self, plate: str):
+        """Try heuristic corrections for OCR misreads by generating plausible
+        single- and double-character substitutions and checking the database for matches.
+
+        Returns (corrected_plate, vehicle_dict) if found, otherwise (None, None).
+        """
+        if not plate or not self.db:
+            return None, None
+
+        plate = plate.strip().upper()
+
+        subs = {
+            '0': ['O'], 'O': ['0'],
+            '1': ['I', '7'], 'I': ['1'],
+            '2': ['Z', '7'], 'Z': ['2'],
+            '5': ['S'], 'S': ['5'],
+            '8': ['B'], 'B': ['8'],
+            '7': ['1', '2'], 'T': ['7'],
+            '6': ['G'], 'G': ['6']
+        }
+
+        candidates = []
+        # single-character replacements
+        for i, ch in enumerate(plate):
+            if ch in subs:
+                for alt in subs[ch]:
+                    cand = plate[:i] + alt + plate[i+1:]
+                    if cand != plate:
+                        candidates.append(cand)
+
+        # two-character combinations (limited breadth)
+        if len(candidates) < 20:
+            n = len(plate)
+            for i in range(n):
+                for j in range(i+1, n):
+                    ch_i = plate[i]
+                    ch_j = plate[j]
+                    if ch_i in subs and ch_j in subs:
+                        for a in subs[ch_i]:
+                            for b in subs[ch_j]:
+                                cand = plate[:i] + a + plate[i+1:j] + b + plate[j+1:]
+                                if cand != plate:
+                                    candidates.append(cand)
+
+        # Deduplicate and limit the number of DB queries
+        seen = set()
+        filtered = []
+        for c in candidates:
+            if c not in seen:
+                seen.add(c)
+                filtered.append(c)
+            if len(filtered) >= 50:
+                break
+
+        for cand in filtered:
+            try:
+                v = self.db.get_vehicle(cand)
+                if v:
+                    return cand, v
+            except Exception:
+                continue
+
+        return None, None
     
     def resume_detection(self):
         """Resume detection after a plate was detected"""
@@ -1448,14 +1633,14 @@ class ALPRMainWindow(QMainWindow):
             print("✅ Resume button disabled")
         
         print("\n" + "="*60)
-        print("🎉 DETECTION RESUMED - READY FOR NEXT VEHICLE!")
+        print("[INFO] DETECTION RESUMED - READY FOR NEXT VEHICLE!")
         print("="*60 + "\n")
     
     def upload_and_process_image(self):
         """Upload an image file and process it for license plate detection"""
-        print("\n" + "📤 "*20)
-        print("📤  UPLOAD IMAGE FOR PROCESSING")
-        print("📤 "*20 + "\n")
+        print("\n" + "* "*20)
+        print("[INFO] UPLOAD IMAGE FOR PROCESSING")
+        print("* "*20 + "\n")
         
         # Open file dialog to select image
         file_path, _ = QFileDialog.getOpenFileName(
@@ -1750,7 +1935,7 @@ class ALPRMainWindow(QMainWindow):
     def on_alpr_initialized(self, alpr_engine):
         """Handle ALPR initialization completion"""
         print("\n" + "="*60)
-        print("🤖 ON_ALPR_INITIALIZED CALLED")
+        print("[INFO] ON_ALPR_INITIALIZED CALLED")
         print("="*60)
         
         self.alpr_engine = alpr_engine
@@ -1761,12 +1946,12 @@ class ALPRMainWindow(QMainWindow):
             
             # Start detection thread
             if self.camera and self.camera.camera_available:
-                print("📷 Camera available, starting detection thread...")
+                print(f"[INFO] Camera available, starting detection thread...")
                 self.detection_thread = DetectionThread(self.camera, self.alpr_engine)
-                print("🔗 Connecting detection_result signal to handle_detection...")
+                print("[INFO] Connecting detection_result signal to handle_detection...")
                 self.detection_thread.detection_result.connect(self.handle_detection)
                 print("✅ Signal connected!")
-                print("▶️  Starting detection thread...")
+                print(f"[INFO] Starting detection thread...")
                 self.detection_thread.start()
                 print("✅ Detection thread started!")
                 

@@ -22,3 +22,139 @@
 2026-01-06 01:59:51 - detection - INFO - Plate detected: MH20EJ0364 (Confidence: 78.88%)
 2026-01-06 01:59:51 - detection - WARNING - Vehicle DENIED: MH20EJ0364 - Not registered in system
 2026-01-06 01:59:51 - detection - INFO - Detection logged - Plate: MH20EJ0364, Status: DENIED, Confidence: 78.88%, Owner: N/A
+2026-01-06 02:13:58 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 02:13:58 - detection - INFO - Plate detected: MH20EJ0364 (Confidence: 78.88%)
+2026-01-06 02:13:58 - detection - WARNING - Vehicle DENIED: MH20EJ0364 - Not registered in system
+2026-01-06 02:13:58 - detection - INFO - Detection logged - Plate: MH20EJ0364, Status: DENIED, Confidence: 78.88%, Owner: N/A
+2026-01-06 02:18:15 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 02:18:15 - detection - INFO - Plate detected: MH20EJ0364 (Confidence: 78.88%)
+2026-01-06 02:18:15 - detection - WARNING - Vehicle DENIED: MH20EJ0364 - Not registered in system
+2026-01-06 02:18:15 - detection - INFO - Detection logged - Plate: MH20EJ0364, Status: DENIED, Confidence: 78.88%, Owner: N/A
+2026-01-06 02:51:31 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-06 02:51:31 - detection - INFO - Plate detected: OR (Confidence: 69.82%)
+2026-01-06 02:51:31 - detection - WARNING - Vehicle DENIED: OR - Not registered in system
+2026-01-06 02:51:31 - detection - INFO - Detection logged - Plate: OR, Status: DENIED, Confidence: 69.82%, Owner: N/A
+2026-01-12 17:01:55 - detection - INFO - Detection received: ['confidence', 'detection_confidence', 'frame', 'ocr_confidence', 'plate_image', 'plate_number', 'preprocessed_image']
+2026-01-12 17:01:55 - detection - INFO - Plate detected: JCC1745 (Confidence: 67.44%)
+2026-01-12 17:01:55 - detection - WARNING - Vehicle DENIED: JCC1745 - Not registered in system
+2026-01-12 17:01:55 - detection - INFO - Detection logged - Plate: JCC1745, Status: DENIED, Confidence: 67.44%, Owner: N/A
+2026-01-12 17:02:28 - detection - INFO - Detection received: ['confidence', 'detection_confidence', 'frame', 'ocr_confidence', 'plate_image', 'plate_number', 'preprocessed_image']
+2026-01-12 17:02:28 - detection - INFO - Plate detected: 2S (Confidence: 88.58%)
+2026-01-12 17:02:28 - detection - WARNING - Vehicle DENIED: 2S - Not registered in system
+2026-01-12 17:02:28 - detection - INFO - Detection logged - Plate: 2S, Status: DENIED, Confidence: 88.58%, Owner: N/A
+2026-01-12 17:03:49 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:03:49 - detection - INFO - Plate detected: PE (Confidence: 85.49%)
+2026-01-12 17:03:49 - detection - WARNING - Vehicle DENIED: PE - Not registered in system
+2026-01-12 17:03:49 - detection - INFO - Detection logged - Plate: PE, Status: DENIED, Confidence: 85.49%, Owner: N/A
+2026-01-12 17:03:57 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:03:57 - detection - INFO - Plate detected: 4671 (Confidence: 73.64%)
+2026-01-12 17:03:57 - detection - WARNING - Vehicle DENIED: 4671 - Not registered in system
+2026-01-12 17:03:57 - detection - INFO - Detection logged - Plate: 4671, Status: DENIED, Confidence: 73.64%, Owner: N/A
+2026-01-12 17:04:02 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:04:02 - detection - INFO - Plate detected: G (Confidence: 67.19%)
+2026-01-12 17:04:02 - detection - WARNING - Vehicle DENIED: G - Not registered in system
+2026-01-12 17:04:02 - detection - INFO - Detection logged - Plate: G, Status: DENIED, Confidence: 67.19%, Owner: N/A
+2026-01-12 17:05:36 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:05:36 - detection - INFO - Plate detected: OL (Confidence: 78.04%)
+2026-01-12 17:05:36 - detection - WARNING - Vehicle DENIED: OL - Not registered in system
+2026-01-12 17:05:36 - detection - INFO - Detection logged - Plate: OL, Status: DENIED, Confidence: 78.04%, Owner: N/A
+2026-01-12 17:06:29 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:29 - detection - INFO - Plate detected: OL (Confidence: 88.96%)
+2026-01-12 17:06:29 - detection - WARNING - Vehicle DENIED: OL - Not registered in system
+2026-01-12 17:06:29 - detection - INFO - Detection logged - Plate: OL, Status: DENIED, Confidence: 88.96%, Owner: N/A
+2026-01-12 17:06:32 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:32 - detection - INFO - Plate detected: OL2CO1939 (Confidence: 69.70%)
+2026-01-12 17:06:32 - detection - WARNING - Vehicle DENIED: OL2CO1939 - Not registered in system
+2026-01-12 17:06:32 - detection - INFO - Detection logged - Plate: OL2CO1939, Status: DENIED, Confidence: 69.70%, Owner: N/A
+2026-01-12 17:06:35 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:35 - detection - INFO - Plate detected: I939 (Confidence: 76.41%)
+2026-01-12 17:06:35 - detection - WARNING - Vehicle DENIED: I939 - Not registered in system
+2026-01-12 17:06:35 - detection - INFO - Detection logged - Plate: I939, Status: DENIED, Confidence: 76.41%, Owner: N/A
+2026-01-12 17:06:36 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:36 - detection - INFO - Plate detected: OL7CQ1939 (Confidence: 69.66%)
+2026-01-12 17:06:37 - detection - WARNING - Vehicle DENIED: OL7CQ1939 - Not registered in system
+2026-01-12 17:06:37 - detection - INFO - Detection logged - Plate: OL7CQ1939, Status: DENIED, Confidence: 69.66%, Owner: N/A
+2026-01-12 17:06:38 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:38 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 73.59%)
+2026-01-12 17:06:38 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:06:38 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 73.59%, Owner: N/A
+2026-01-12 17:06:39 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:39 - detection - INFO - Plate detected: OL2CO1939 (Confidence: 77.34%)
+2026-01-12 17:06:39 - detection - WARNING - Vehicle DENIED: OL2CO1939 - Not registered in system
+2026-01-12 17:06:39 - detection - INFO - Detection logged - Plate: OL2CO1939, Status: DENIED, Confidence: 77.34%, Owner: N/A
+2026-01-12 17:06:41 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:41 - detection - INFO - Plate detected: OL7CO1939 (Confidence: 67.01%)
+2026-01-12 17:06:41 - detection - WARNING - Vehicle DENIED: OL7CO1939 - Not registered in system
+2026-01-12 17:06:41 - detection - INFO - Detection logged - Plate: OL7CO1939, Status: DENIED, Confidence: 67.01%, Owner: N/A
+2026-01-12 17:06:42 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:06:42 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 71.48%)
+2026-01-12 17:06:42 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:06:42 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 71.48%, Owner: N/A
+2026-01-12 17:22:00 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:22:00 - detection - INFO - Plate detected: CL7C01939 (Confidence: 66.81%)
+2026-01-12 17:22:00 - detection - WARNING - Vehicle DENIED: CL7C01939 - Not registered in system
+2026-01-12 17:22:00 - detection - INFO - Detection logged - Plate: CL7C01939, Status: DENIED, Confidence: 66.81%, Owner: N/A
+2026-01-12 17:22:18 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:22:18 - detection - INFO - Plate detected: CL701919 (Confidence: 70.57%)
+2026-01-12 17:22:18 - detection - WARNING - Vehicle DENIED: CL701919 - Not registered in system
+2026-01-12 17:22:18 - detection - INFO - Detection logged - Plate: CL701919, Status: DENIED, Confidence: 70.57%, Owner: N/A
+2026-01-12 17:22:43 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:22:43 - detection - INFO - Plate detected: DL7CQ1939 (Confidence: 72.57%)
+2026-01-12 17:22:43 - detection - WARNING - Vehicle DENIED: DL7CQ1939 - Not registered in system
+2026-01-12 17:22:43 - detection - INFO - Detection logged - Plate: DL7CQ1939, Status: DENIED, Confidence: 72.57%, Owner: N/A
+2026-01-12 17:23:35 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:35 - detection - INFO - Plate detected: DL7C01939 (Confidence: 64.85%)
+2026-01-12 17:23:35 - detection - WARNING - Vehicle DENIED: DL7C01939 - Not registered in system
+2026-01-12 17:23:35 - detection - INFO - Detection logged - Plate: DL7C01939, Status: DENIED, Confidence: 64.85%, Owner: N/A
+2026-01-12 17:23:38 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:38 - detection - INFO - Plate detected: FDL7CQ1939 (Confidence: 72.06%)
+2026-01-12 17:23:38 - detection - WARNING - Vehicle DENIED: FDL7CQ1939 - Not registered in system
+2026-01-12 17:23:38 - detection - INFO - Detection logged - Plate: FDL7CQ1939, Status: DENIED, Confidence: 72.06%, Owner: N/A
+2026-01-12 17:23:40 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:40 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 66.27%)
+2026-01-12 17:23:40 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:23:40 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 66.27%, Owner: N/A
+2026-01-12 17:23:42 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:42 - detection - INFO - Plate detected: DL2CC1939 (Confidence: 68.00%)
+2026-01-12 17:23:42 - detection - WARNING - Vehicle DENIED: DL2CC1939 - Not registered in system
+2026-01-12 17:23:42 - detection - INFO - Detection logged - Plate: DL2CC1939, Status: DENIED, Confidence: 68.00%, Owner: N/A
+2026-01-12 17:23:44 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:44 - detection - INFO - Plate detected: DL2CO1939 (Confidence: 70.48%)
+2026-01-12 17:23:44 - detection - WARNING - Vehicle DENIED: DL2CO1939 - Not registered in system
+2026-01-12 17:23:44 - detection - INFO - Detection logged - Plate: DL2CO1939, Status: DENIED, Confidence: 70.48%, Owner: N/A
+2026-01-12 17:23:45 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:45 - detection - INFO - Plate detected: DL7CQ1939 (Confidence: 83.39%)
+2026-01-12 17:23:45 - detection - INFO - Vehicle ALLOWED: DL7CQ1939 - Owner: ABC
+2026-01-12 17:23:45 - detection - INFO - Detection logged - Plate: DL7CQ1939, Status: ALLOWED, Confidence: 83.39%, Owner: ABC
+2026-01-12 17:23:55 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:55 - detection - INFO - Plate detected: 7C01020L (Confidence: 66.30%)
+2026-01-12 17:23:55 - detection - WARNING - Vehicle DENIED: 7C01020L - Not registered in system
+2026-01-12 17:23:55 - detection - INFO - Detection logged - Plate: 7C01020L, Status: DENIED, Confidence: 66.30%, Owner: N/A
+2026-01-12 17:23:58 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:23:58 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 71.97%)
+2026-01-12 17:23:58 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:23:58 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 71.97%, Owner: N/A
+2026-01-12 17:24:01 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:01 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 68.00%)
+2026-01-12 17:24:01 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:24:01 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 68.00%, Owner: N/A
+2026-01-12 17:24:03 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:03 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 88.34%)
+2026-01-12 17:24:03 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:24:03 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 88.34%, Owner: N/A
+2026-01-12 17:24:04 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:04 - detection - INFO - Plate detected: DL2C01939 (Confidence: 70.77%)
+2026-01-12 17:24:04 - detection - WARNING - Vehicle DENIED: DL2C01939 - Not registered in system
+2026-01-12 17:24:04 - detection - INFO - Detection logged - Plate: DL2C01939, Status: DENIED, Confidence: 70.77%, Owner: N/A
+2026-01-12 17:24:05 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:05 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 82.69%)
+2026-01-12 17:24:05 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:24:05 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 82.69%, Owner: N/A
+2026-01-12 17:24:06 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:06 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 78.59%)
+2026-01-12 17:24:06 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:24:06 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 78.59%, Owner: N/A
+2026-01-12 17:24:09 - detection - INFO - Detection received: ['plate_number', 'confidence', 'detection_confidence', 'ocr_confidence', 'plate_image', 'preprocessed_image', 'frame']
+2026-01-12 17:24:09 - detection - INFO - Plate detected: DL2CQ1939 (Confidence: 72.76%)
+2026-01-12 17:24:09 - detection - WARNING - Vehicle DENIED: DL2CQ1939 - Not registered in system
+2026-01-12 17:24:09 - detection - INFO - Detection logged - Plate: DL2CQ1939, Status: DENIED, Confidence: 72.76%, Owner: N/A
